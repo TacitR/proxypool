@@ -6,6 +6,7 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
+	"github.com/TacitR/proxypool/config"
 )
 
 var DB *gorm.DB
