@@ -12,6 +12,7 @@ import (
 var DB *gorm.DB
 
 func connect() (err error) {
+	var s3 string
 	dsn := "user=proxypool password=proxypool dbname=proxypool port=5432 sslmode=disable TimeZone=Asia/Shanghai"
 	if url := config.Config.DatabaseUrl; url != "" {
 		s3:=dsn+"host="+url
