@@ -12,13 +12,8 @@ import (
 var DB *gorm.DB
 
 func connect() (err error) {
-	dsn := "user=proxypool password=proxypool dbname=proxypool port=5432 sslmode=password TimeZone=Asia/Shanghai"
-	if url := config.Config.DatabaseUrl; url != "" {
-		dsn = url
-	}
-	if url := os.Getenv("DATABASE_URL"); url != "" {
-		dsn = url
-	}
+	dsn := "host=tacitr.com user=proxypool password=proxypool dbname=proxypool port=5432 sslmode=password TimeZone=Asia/Shanghai"
+
 	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Silent),
 	})
