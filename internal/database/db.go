@@ -12,7 +12,8 @@ import (
 var DB *gorm.DB
 
 func connect() (err error) {
-	db, err := gorm.Open("postgres", "host=tacir.com port=5432 user=proxypool dbname=proxypool sslmode=disable password=proxypool")
+	dsn := "host=tacitr.com user=proxypool password=proxypool dbname=proxypool port=5432 sslmode=disable TimeZone=Asia/Shanghai"
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err == nil {
 		fmt.Println("DB connect success: ", DB.Name())
 	}
